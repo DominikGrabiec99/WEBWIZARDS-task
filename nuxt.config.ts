@@ -5,8 +5,6 @@ export default defineNuxtConfig({
     port: process.env.PORT
   },
   runtimeConfig: {
-    public: {
-      webwizardApi: process.env.NUXT_PUBLIC_WEBWIZARD_API
-    }
+    webwizardApi: process.env.NUXT_PUBLIC_WEBWIZARD_API
   }
 })
