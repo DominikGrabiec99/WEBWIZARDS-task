@@ -1,13 +1,9 @@
 <template>
   <div
     class="skeleton"
-    :class="[
-      `skeleton--width-${widthClass}`,
-      `skeleton--height-${heightClass}`,
-      `skeleton--${variant}`
-    ]"
+    :class="[`skeleton--${variant}`]"
     :style="{
-      width: width || undefined,
+      'max-width': width || undefined,
       height: height || undefined
     }"
   >
@@ -30,18 +26,6 @@ const props = defineProps({
     default: 'light'
   }
 })
-
-const sanitize = (value: string) => {
-  console.log(value)
-  if (!value) return 'default'
-  if (value.endsWith('%') || value.endsWith('px') || value.endsWith('rem')) {
-    return 'custom'
-  }
-  return value
-}
-
-const widthClass = sanitize(props.width)
-const heightClass = sanitize(props.height)
 </script>
 
 <style lang="scss" scoped>
@@ -49,22 +33,8 @@ const heightClass = sanitize(props.height)
   background-color: #e5e7eb;
   border-radius: 1rem;
   animation: skeleton-pulse 1.5s ease-in-out infinite;
-
-  &--width-default {
-    width: 100%;
-  }
-
-  &--height-default {
-    height: 1rem;
-  }
-
-  &--width-custom {
-    width: unset;
-  }
-
-  &--height-custom {
-    height: unset;
-  }
+  width: 100%;
+  height: 100%;
 
   &--light {
     background-color: $gray-200;
