@@ -1,3 +1,4 @@
-export enum ButtonVariantType {
-  PRIMARY = 'primary'
+export enum EButtonVariantType {
+  PRIMARY = 'primary',
+  GHOST = 'ghost'
 }

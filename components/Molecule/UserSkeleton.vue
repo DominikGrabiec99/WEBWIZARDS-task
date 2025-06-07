@@ -1,6 +1,16 @@
+<script setup lang="ts">
+/** ENUMS */
+import { ESkeletonVariantType } from '@/ts/enums/SkeletonVariantType'
+</script>
+
 <template>
-  <div class="container skeleton-container">
-    <AtomSkeleton width="100%" height="100%" variant="dark" class="skeleton-container__information">
+  <div class="skeleton-container">
+    <AtomSkeleton
+      width="100%"
+      height="100%"
+      :variant="ESkeletonVariantType.DARK"
+      class="skeleton-container__information"
+    >
       <div class="skeleton-container__img-box">
         <AtomSkeleton width="240px" height="240px" class="skeleton-container__img" />
       </div>
@@ -20,7 +30,12 @@
         </div>
       </div>
     </AtomSkeleton>
-    <AtomSkeleton width="90%" height="100%" variant="dark" class="skeleton-container__about">
+    <AtomSkeleton
+      width="90%"
+      height="100%"
+      :variant="ESkeletonVariantType.DARK"
+      class="skeleton-container__about"
+    >
       <div class="skeleton-container__about-box">
         <AtomSkeleton width="100%" height="60px" />
         <AtomSkeleton width="50px" height="20px" />

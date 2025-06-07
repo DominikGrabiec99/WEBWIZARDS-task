@@ -30,7 +30,7 @@ const downloadUserInformation = () => {
 </script>
 
 <template>
-  <div class="container information-box">
+  <div class="information-box">
     <section class="information-box__main-information">
       <div class="information-box__image-wrapper">
         <img class="information-box__img" :src="userImage" :alt="userFullName" />

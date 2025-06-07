@@ -12,6 +12,9 @@
 </template>
 
 <script setup lang="ts">
+/** ENUMS */
+import { ESkeletonVariantType } from '@/ts/enums/SkeletonVariantType'
+
 const props = defineProps({
   width: {
     type: String,
@@ -22,8 +25,8 @@ const props = defineProps({
     default: ''
   },
   variant: {
-    type: String as PropType<'light' | 'dark'>,
-    default: 'light'
+    type: String as PropType<ESkeletonVariantType>,
+    default: ESkeletonVariantType.LIGHT
   }
 })
 </script>

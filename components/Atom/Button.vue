@@ -1,6 +1,6 @@
 <script setup lang="ts">
 /** ENUMS */
-import { ButtonVariantType } from '@/ts/enums/ButtonVariantType'
+import { EButtonVariantType } from '@/ts/enums/ButtonVariantType'
 
 const props = defineProps({
   text: {
@@ -8,8 +8,8 @@ const props = defineProps({
     default: ''
   },
   variant: {
-    type: String as PropType<ButtonVariantType>,
-    default: ButtonVariantType.PRIMARY
+    type: String as PropType<EButtonVariantType>,
+    default: EButtonVariantType.PRIMARY
   },
   ariaLabel: {
     type: String,
@@ -18,8 +18,12 @@ const props = defineProps({
 })
 
 const variantClass = computed(() => {
-  if (props.variant === ButtonVariantType.PRIMARY) {
+  if (props.variant === EButtonVariantType.PRIMARY) {
     return 'button--primary'
+  }
+
+  if (props.variant === EButtonVariantType.GHOST) {
+    return 'button--ghost'
   }
 
   return ''
@@ -33,11 +37,25 @@ const variantClass = computed(() => {
 
 <style lang="scss" scoped>
 .button {
+  cursor: pointer;
   &--primary {
     background-color: $pearlBlue;
     color: $white;
     border: none;
-    cursor: pointer;
+
+    &:hover {
+      opacity: 0.8;
+    }
+  }
+
+  &--ghost {
+    border: none;
+    background-color: transparent;
+    color: $white;
+
+    &:hover {
+      text-decoration: underline;
+    }
   }
 
   :focus-visible {

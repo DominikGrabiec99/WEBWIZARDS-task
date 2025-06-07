@@ -4,9 +4,14 @@ const { user, isUserError, fetchingUser } = useUserData()
 
 <template>
   <div class="main-page">
-    <MoleculeUserSkeleton v-if="fetchingUser" />
-    <div v-else-if="isUserError">error</div>
-    <OrganismUserInformationBox v-else :user="user" />
+    <div class="container">
+      <MoleculeUserSkeleton v-if="fetchingUser" />
+      <MoleculeAlert
+        v-else-if="isUserError"
+        text="Przepraszamy nie udało się pobrac informacji o użytkowniku. Spróbuj ponownie za chwilę!"
+      />
+      <OrganismUserInformationBox v-else :user="user" />
+    </div>
   </div>
 </template>
 
