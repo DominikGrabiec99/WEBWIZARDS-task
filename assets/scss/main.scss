@@ -4,14 +4,14 @@
 *,
 *::before,
 *::after {
+  box-sizing: border-box;
   margin: 0;
   padding: 0;
-  box-sizing: border-box;
 }
 
 body {
   line-height: 1.5;
-  font-family: sans-serif;
+  font-family: 'Roboto', sans-serif;
 }
 
 img,
@@ -24,6 +24,6 @@ svg {
 }
 
 .container {
-  max-width: 1344px;
   margin: 0 auto;
+  max-width: $maxContainerWidth;
 }

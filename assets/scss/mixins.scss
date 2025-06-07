@@ -10,3 +10,9 @@
     @error "No value found for breakpoint: #{$breakpoint}";
   }
 }
+
+@mixin flex-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

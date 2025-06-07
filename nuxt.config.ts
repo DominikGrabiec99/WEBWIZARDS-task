@@ -1,4 +1,12 @@
 export default defineNuxtConfig({
+  head: {
+    link: [
+      {
+        rel: 'stylesheet',
+        href: 'https://fonts.googleapis.com/css2?family=Roboto&display=swap'
+      }
+    ]
+  },
   compatibilityDate: '2025-05-15',
   devtools: { enabled: true },
   css: ['@/assets/scss/main.scss'],

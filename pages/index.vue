@@ -1,20 +1,21 @@
 <script setup lang="ts">
-const { user, userImage, isUserError, fetchingUser } = useUserData()
+const { user, isUserError, fetchingUser } = useUserData()
 </script>
 
 <template>
   <div class="main-page">
     <div v-if="fetchingUser">loading</div>
     <div v-else-if="isUserError">error</div>
-    <OrganismUserInformationBox v-else :userImage="userImage" />
+    <OrganismUserInformationBox v-else :user="user" />
   </div>
 </template>
 
 <style lang="scss" scoped>
 .main-page {
-  min-height: 100vh;
+  @include flex-center;
   background: $lightGrey;
-  padding-block: 1rem;
+  min-height: 100vh;
+  padding: 1rem;
 
   @include respond-to(md) {
     padding-block: 2rem;

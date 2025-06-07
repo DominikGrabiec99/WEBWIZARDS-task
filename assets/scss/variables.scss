@@ -1,6 +1,17 @@
-$darkBlue: #1b2b5a;
-$lightBlue: #66b3d3;
-$lightGrey: #f1f1f1;
+// COLORS
+$darkBlue: #1f3b71;
+$lightBlue: #5aabdf;
+$pearlBlue: #3aaee3;
+$textBlue: #2f8dc3;
+$lightGrey: #e8e9e9;
+$white: #fff;
+$black: #000;
+
+// WIDTH
+$maxContainerWidth: 1344px;
+
+// FONT-SIZE
+$sectionTitleSize: 1.5rem;
 
 $breakpoints: (
   xs: 480px,
