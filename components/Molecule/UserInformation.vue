@@ -1,5 +1,5 @@
 <script setup lang="ts">
-defineProps({
+const props = defineProps({
   userFullName: {
     type: String,
     default: ''
@@ -8,25 +8,36 @@ defineProps({
     type: String,
     default: ''
   },
-  phoneNumber: {
+  userPhoneNumber: {
     type: String,
     default: ''
   }
 })
 
-const emit = defineEmits(['downloadUserInformation', 'toggleShowPhoneNumber'])
+const emit = defineEmits(['downloadUserInformation'])
+
+const showPhoneNumber = ref(false)
+
+const phoneNumber = computed(() =>
+  showPhoneNumber.value
+    ? formatPhoneNumber(props.userPhoneNumber)
+    : `XXXXXX${props.userPhoneNumber?.slice(-3)}`
+)
+
+const toggleShowPhoneNumber = () => {
+  showPhoneNumber.value = !showPhoneNumber.value
+}
 </script>
 
 <template>
   <div class="information">
     <div class="information__header">
       <h3 class="information__header-name">{{ userFullName }}</h3>
-      <button
+      <AtomButton
         class="information__button information__button--download"
+        text="Pobierz dane użytkownika"
         @click="emit('downloadUserInformation')"
-      >
-        Pobierz dane użytkownika
-      </button>
+      />
     </div>
 
     <div class="information-contact">
@@ -40,12 +51,11 @@ const emit = defineEmits(['downloadUserInformation', 'toggleShowPhoneNumber'])
       <div class="information-contact__item">
         <span class="information-contact__label">Numer telefon:</span>
         <span class="information-contact__phone-number">{{ phoneNumber }}</span>
-        <button
+        <AtomButton
           class="information__button information__button--contact"
-          @click="emit('toggleShowPhoneNumber')"
-        >
-          Pokaż telefon
-        </button>
+          text="Pokaż telefon"
+          @click="toggleShowPhoneNumber"
+        />
       </div>
     </div>
   </div>
@@ -75,11 +85,6 @@ const emit = defineEmits(['downloadUserInformation', 'toggleShowPhoneNumber'])
   }
 
   &__button {
-    background-color: $pearlBlue;
-    color: $white;
-    border: none;
-    cursor: pointer;
-
     &--download {
       border-top-left-radius: 0.5rem;
       border-bottom-right-radius: 0.5rem;

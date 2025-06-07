@@ -11,21 +11,10 @@ const props = defineProps({
     default: null
   }
 })
-const showPhoneNumber = ref(false)
 
 const user = toRef(props.user)
 
-const { userImage, userFullName, userPhoneNumber, userEmail } = useUserInformation(user)
-
-const phoneNumber = computed(() =>
-  showPhoneNumber.value
-    ? formatPhoneNumber(userPhoneNumber.value)
-    : `XXXXXX${userPhoneNumber.value?.slice(-3)}`
-)
-
-const toggleShowPhoneNumber = () => {
-  showPhoneNumber.value = !showPhoneNumber.value
-}
+const { userImage, userFullName, userPhoneNumber, userEmail, userAbout } = useUserInformation(user)
 
 const downloadUserInformation = () => {
   if (!user.value) {
@@ -42,7 +31,7 @@ const downloadUserInformation = () => {
 
 <template>
   <div class="container information-box">
-    <section class="information-box__section">
+    <section class="information-box__main-information">
       <div class="information-box__image-wrapper">
         <img class="information-box__img" :src="userImage" :alt="userFullName" />
       </div>
@@ -50,33 +39,42 @@ const downloadUserInformation = () => {
       <MoleculeUserInformation
         :user-full-name="userFullName"
         :user-email="userEmail"
-        :phone-number="phoneNumber"
+        :user-phone-number="userPhoneNumber"
         @download-user-information="downloadUserInformation"
-        @toggle-show-phone-number="toggleShowPhoneNumber"
       />
+    </section>
+    <section class="information-box__about">
+      <OrganismUserAbout :user-about="userAbout" />
     </section>
   </div>
 </template>
 
 <style lang="scss" scoped>
 $informationBoxHeight: 15.5rem;
-.information-box {
-  width: 100%;
 
-  &__section {
+.information-box {
+  &__main-information {
     background: $darkBlue;
-    padding: 1rem;
-    border-radius: 1rem;
+    padding: $paddingSection;
+    border-radius: $sectionRadius $sectionRadius 0 0;
     position: relative;
     min-height: $informationBoxHeight;
     display: flex;
     flex-direction: column;
     gap: 1rem;
+    box-shadow: $shadow-sm;
 
     @include respond-to(md) {
       flex-direction: row;
-      padding: 2rem;
+      padding: $paddingSectionDesktop;
       gap: 2rem;
+      border-radius: $sectionRadius;
+    }
+  }
+
+  &__about {
+    @include respond-to(md) {
+      padding-inline: $paddingSectionDesktop;
     }
   }
 

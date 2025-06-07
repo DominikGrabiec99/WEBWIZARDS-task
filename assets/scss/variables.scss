@@ -6,12 +6,25 @@ $textBlue: #2f8dc3;
 $lightGrey: #e8e9e9;
 $white: #fff;
 $black: #000;
+$gray-200: #e5e7eb;
+$gray-700: #374151;
 
 // WIDTH
 $maxContainerWidth: 1344px;
 
 // FONT-SIZE
 $sectionTitleSize: 1.5rem;
+
+// RADIUS
+$sectionRadius: 1rem;
+
+// PADDING
+$paddingSection: 1rem;
+$paddingSectionDesktop: 2rem;
+
+// SHADOW
+$shadow-sm: 0px 0px 30px -5px rgba(66, 68, 90, 1);
+$shadow-md: 8px 12px 36px -20px rgba(0, 0, 0, 1);
 
 $breakpoints: (
   xs: 480px,

@@ -10,6 +10,6 @@ export default defineEventHandler(async event => {
     return userData.data
   } catch (error) {
     console.error('fetch user error: ', error)
-    return null
+    return createError({ statusCode: 500, statusMessage: 'Fetch failed' })
   }
 })
