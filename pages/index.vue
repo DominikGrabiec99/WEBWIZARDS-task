@@ -1,5 +1,18 @@
 <script setup lang="ts">
 const { user, isUserError, fetchingUser } = useUserData()
+const { userFullName } = useUserInformation(user)
+
+const headTitle = computed(() => `${userFullName.value} - pracownik firmy WEBWIZARDS`)
+const headDescription = computed(() => `Poznaj naszego pracownika ${userFullName.value}`)
+
+useHead({
+  title: headTitle,
+  meta: [
+    { name: 'description', content: headDescription },
+    { property: 'og:title', content: headTitle },
+    { property: 'og:description', content: headDescription }
+  ]
+})
 </script>
 
 <template>

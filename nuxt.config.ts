@@ -1,5 +1,9 @@
 export default defineNuxtConfig({
   head: {
+    title: 'WEBWIZARDS - dedykowane rozwiązania dla branży automotive',
+    htmlAttrs: {
+      lang: 'pl'
+    },
     link: [
       {
         rel: 'stylesheet',
