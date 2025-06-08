@@ -5,7 +5,7 @@ const { user, isUserError, fetchingUser } = useUserData()
 <template>
   <div class="main-page">
     <div class="container">
-      <MoleculeUserSkeleton v-if="fetchingUser" />
+      <MoleculeUserSkeleton v-if="fetchingUser" role="status" aria-live="polite" />
       <MoleculeAlert
         v-else-if="isUserError"
         text="Przepraszamy nie udało się pobrac informacji o użytkowniku. Spróbuj ponownie za chwilę!"

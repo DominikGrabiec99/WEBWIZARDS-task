@@ -11,13 +11,11 @@ const isTextExpanded = ref(false)
 const isMoreThanOneParagraph = computed(() => props.userAbout?.match(PARAGRAPH_CHART))
 const buttonText = computed(() => (isTextExpanded.value ? 'Zwiń tekst' : 'Rozwiń opis'))
 const text = computed(() => {
-  if (isTextExpanded.value) {
-    return props.userAbout
-  }
-
   const firstParagraphIdx = props.userAbout?.indexOf(PARAGRAPH_CHART)
-
-  return props.userAbout.slice(0, firstParagraphIdx)
+  return {
+    basic: props.userAbout.slice(0, firstParagraphIdx),
+    extend: props.userAbout.slice(firstParagraphIdx + 1)
+  }
 })
 
 const toggleIsExtendedText = () => {
@@ -27,11 +25,18 @@ const toggleIsExtendedText = () => {
 
 <template>
   <div class="about">
-    <MoleculeExtendText :text="text" text-class="about__text" :is-text-expanded="isTextExpanded" />
+    <MoleculeExtendedText
+      :text="text.basic"
+      :extend-text="text.extend"
+      text-class="about__text"
+      :is-text-expanded="isTextExpanded"
+    />
     <AtomButton
       v-if="isMoreThanOneParagraph"
       class="about__button"
       :text="buttonText"
+      :aria-expanded="isTextExpanded.toString()"
+      :aria-controls="'extended-text'"
       @click="toggleIsExtendedText"
     />
   </div>
