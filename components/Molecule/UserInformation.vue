@@ -79,13 +79,13 @@ const toggleShowPhoneNumber = () => {
   display: flex;
   flex-direction: column;
   gap: 1rem;
-  color: $white;
   width: 100%;
+  color: $white;
 
   &__header {
     display: flex;
-    justify-content: space-between;
     flex-direction: column;
+    justify-content: space-between;
     gap: 0.5rem;
 
     @include respond-to(md) {
@@ -99,29 +99,29 @@ const toggleShowPhoneNumber = () => {
 
   &__button {
     &--download {
-      border-top-left-radius: 0.5rem;
-      border-bottom-right-radius: 0.5rem;
       height: 1.5rem;
       padding-inline: 0.25rem;
-      font-weight: 600;
       font-size: 0.75rem;
+      font-weight: 600;
+      border-bottom-right-radius: 0.5rem;
+      border-top-left-radius: 0.5rem;
     }
 
     &--contact {
-      font-size: 0.75rem;
       padding: 0.25rem;
+      font-size: 0.75rem;
     }
   }
 
   &-contact {
     display: flex;
-    gap: 0.75rem;
     flex-direction: column;
+    gap: 0.75rem;
 
     &__item {
       display: flex;
-      gap: 0.25rem;
       align-items: center;
+      gap: 0.25rem;
     }
 
     &__link {

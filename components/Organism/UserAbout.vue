@@ -43,21 +43,21 @@ const toggleIsExtendedText = () => {
 </template>
 
 <style lang="scss" scoped>
-$paddingSection: 1rem;
-$paddingSectionDesktop: 2rem;
+$padding-section: 1rem;
+$padding-section-desktop: 2rem;
 
 .about {
-  background-color: $lightBlue;
-  border-radius: 0 0 $sectionRadius $sectionRadius;
-  padding: $paddingSection;
-  padding-top: 2rem;
-  box-shadow: $shadow-md;
   display: flex;
   flex-direction: column;
   gap: 1rem;
+  padding: $padding-section;
+  padding-top: 2rem;
+  background-color: $lightBlue;
+  border-radius: 0 0 $sectionRadius $sectionRadius;
+  box-shadow: $shadow-md;
 
   @include respond-to(md) {
-    padding: $paddingSectionDesktop;
+    padding: $padding-section-desktop;
     padding-top: 3rem;
   }
 

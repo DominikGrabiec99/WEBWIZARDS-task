@@ -1,7 +1,90 @@
 {
   "customSyntax": "postcss-html",
   "extends": ["stylelint-config-standard-scss"],
+  "plugins": ["stylelint-order"],
   "rules": {
-    "order/properties-alphabetical-order": true
+    "order/properties-order": [
+      [
+        "position",
+        "top",
+        "right",
+        "bottom",
+        "left",
+        "z-index",
+
+        "display",
+        "flex",
+        "flex-direction",
+        "flex-grow",
+        "flex-shrink",
+        "flex-basis",
+        "align-items",
+        "justify-content",
+        "gap",
+
+        "width",
+        "min-width",
+        "max-width",
+        "height",
+        "min-height",
+        "max-height",
+
+        "margin",
+        "margin-top",
+        "margin-right",
+        "margin-bottom",
+        "margin-left",
+        "padding",
+        "padding-block",
+        "padding-inline",
+        "padding-top",
+        "padding-right",
+        "padding-bottom",
+        "padding-left",
+
+        "box-sizing",
+        "overflow",
+        "overflow-x",
+        "overflow-y",
+
+        "font",
+        "font-family",
+        "font-size",
+        "font-weight",
+        "line-height",
+        "letter-spacing",
+        "text-align",
+        "text-transform",
+        "color",
+
+        "background",
+        "background-color",
+        "background-image",
+        "border",
+        "border-radius",
+        "box-shadow",
+
+        "opacity",
+        "visibility",
+        "transition",
+        "animation"
+      ],
+      {
+        "unspecified": "bottomAlphabetical"
+      }
+    ],
+    "selector-pseudo-class-no-unknown": [
+      true,
+      {
+        "ignorePseudoClasses": ["deep"]
+      }
+    ],
+    "selector-class-pattern": [
+      "^[a-z0-9]+(?:-[a-z0-9]+)*(?:__(?:[a-z0-9]+(?:-[a-z0-9]+)*))?(?:--(?:[a-z0-9]+(?:-[a-z0-9]+)*))?$",
+      {
+        "resolveNestedSelectors": true,
+        "message": "Class name should be kebab-case or BEM (with __ and -- separators)"
+      }
+    ]
   }
 }

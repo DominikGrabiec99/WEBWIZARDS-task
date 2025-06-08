@@ -50,9 +50,10 @@ const { beforeEnter, enter, afterEnter, beforeLeave, leave } = useTransitionHook
 .text-box {
   &__text {
     white-space: pre-line;
+
     &--expand {
-      overflow: hidden;
       display: inline-block;
+      overflow: hidden;
       vertical-align: top;
     }
   }

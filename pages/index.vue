@@ -31,9 +31,11 @@ useHead({
 <style lang="scss" scoped>
 .main-page {
   @include flex-center;
-  background: $lightGrey;
+
   min-height: 100vh;
   padding: 1rem;
+  padding-top: 4rem;
+  background: $lightGrey;
 
   @include respond-to(md) {
     padding-block: 2rem;

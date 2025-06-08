@@ -38,9 +38,10 @@ const variantClass = computed(() => {
 <style lang="scss" scoped>
 .button {
   cursor: pointer;
+
   &--primary {
-    background-color: $pearlBlue;
     color: $white;
+    background-color: $pearlBlue;
     border: none;
 
     &:hover {
@@ -49,9 +50,9 @@ const variantClass = computed(() => {
   }
 
   &--ghost {
-    border: none;
-    background-color: transparent;
     color: $white;
+    background-color: transparent;
+    border: none;
 
     &:hover {
       text-decoration: underline;

@@ -47,11 +47,11 @@ import { ESkeletonVariantType } from '@/ts/enums/SkeletonVariantType'
 <style lang="scss" scoped>
 .skeleton-container {
   &__information {
+    position: relative;
     display: flex;
     flex-direction: column;
-    padding: $paddingSection;
-    position: relative;
     gap: 1rem;
+    padding: $paddingSection;
 
     @include respond-to(md) {
       flex-direction: row;
@@ -61,9 +61,10 @@ import { ESkeletonVariantType } from '@/ts/enums/SkeletonVariantType'
 
   &__img-box {
     @include flex-center;
+
     position: relative;
-    margin-top: -4rem;
     flex-shrink: 0;
+    margin-top: -4rem;
 
     @include respond-to(md) {
       display: block;
@@ -76,10 +77,10 @@ import { ESkeletonVariantType } from '@/ts/enums/SkeletonVariantType'
   }
 
   &__about {
-    margin-inline: auto;
+    padding: $paddingSection;
     border-top-left-radius: 0;
     border-top-right-radius: 0;
-    padding: $paddingSection;
+    margin-inline: auto;
 
     @include respond-to(md) {
       padding: $paddingSectionDesktop;
@@ -102,8 +103,8 @@ import { ESkeletonVariantType } from '@/ts/enums/SkeletonVariantType'
   width: 100%;
 
   @include respond-to(md) {
-    margin-bottom: 4rem;
     gap: 2rem;
+    margin-bottom: 4rem;
   }
 
   &__header {

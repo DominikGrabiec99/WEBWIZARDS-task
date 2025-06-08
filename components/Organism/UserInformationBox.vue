@@ -55,24 +55,24 @@ const downloadUserInformation = () => {
 </template>
 
 <style lang="scss" scoped>
-$informationBoxHeight: 15.5rem;
+$information-box-height: 15.5rem;
 
 .information-box {
   &__main-information {
-    background: $darkBlue;
-    padding: $paddingSection;
-    border-radius: $sectionRadius $sectionRadius 0 0;
     position: relative;
-    min-height: $informationBoxHeight;
     display: flex;
     flex-direction: column;
     gap: 1rem;
+    min-height: $information-box-height;
+    padding: $paddingSection;
+    background: $darkBlue;
+    border-radius: $sectionRadius $sectionRadius 0 0;
     box-shadow: $shadow-sm;
 
     @include respond-to(md) {
       flex-direction: row;
-      padding: $paddingSectionDesktop;
       gap: 2rem;
+      padding: $paddingSectionDesktop;
       border-radius: $sectionRadius;
     }
   }
@@ -85,9 +85,10 @@ $informationBoxHeight: 15.5rem;
 
   &__image-wrapper {
     @include flex-center;
+
     position: relative;
-    margin-top: -4rem;
     flex-shrink: 0;
+    margin-top: -4rem;
   }
 
   &__img {

@@ -15,7 +15,7 @@
 /** ENUMS */
 import { ESkeletonVariantType } from '@/ts/enums/SkeletonVariantType'
 
-const props = defineProps({
+defineProps({
   width: {
     type: String,
     default: ''
@@ -33,11 +33,11 @@ const props = defineProps({
 
 <style lang="scss" scoped>
 .skeleton {
+  width: 100%;
+  height: 100%;
   background-color: #e5e7eb;
   border-radius: 1rem;
   animation: skeleton-pulse 1.5s ease-in-out infinite;
-  width: 100%;
-  height: 100%;
 
   &--light {
     background-color: $gray-200;
@@ -53,6 +53,7 @@ const props = defineProps({
   100% {
     opacity: 1;
   }
+
   50% {
     opacity: 0.4;
   }

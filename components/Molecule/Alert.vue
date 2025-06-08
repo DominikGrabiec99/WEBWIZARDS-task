@@ -31,14 +31,14 @@ const refreshPage = () => {
 
 <style lang="scss" scoped>
 .alert {
-  background-color: $redAlert;
-  padding: $paddingSection;
-  box-shadow: $shadow-sm;
-  border-radius: $sectionRadius;
   display: flex;
   flex-direction: column;
   gap: 1rem;
+  padding: $paddingSection;
   font-size: 1.25rem;
+  background-color: $redAlert;
+  border-radius: $sectionRadius;
+  box-shadow: $shadow-sm;
 
   @include respond-to(md) {
     padding: $paddingSectionDesktop;

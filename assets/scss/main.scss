@@ -11,7 +11,7 @@
 
 body {
   line-height: 1.5;
-  font-family: 'Roboto', sans-serif;
+  font-family: Roboto, sans-serif;
 }
 
 img,
@@ -24,7 +24,7 @@ svg {
 }
 
 .container {
-  margin: 0 auto;
   max-width: $maxContainerWidth;
   width: 100%;
+  margin: 0 auto;
 }
