@@ -17,15 +17,16 @@ const refreshPage = () => {
 </script>
 
 <template>
-  <div class="alert">
+  <section class="alert" role="alert" :aria-label="text || 'Komunikat systemowy'">
     <p class="alert__text">{{ text }}</p>
     <AtomButton
       class="alert__button"
-      text="Odświerz stronę"
+      text="Odśwież stronę"
       :variant="EButtonVariantType.GHOST"
+      aria-label="Odśwież stronę - ponownie załaduj zawartość"
       @click="refreshPage"
     />
-  </div>
+  </section>
 </template>
 
 <style lang="scss" scoped>

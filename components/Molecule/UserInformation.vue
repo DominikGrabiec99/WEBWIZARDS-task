@@ -1,4 +1,6 @@
 <script setup lang="ts">
+import { ref, computed } from 'vue'
+
 const props = defineProps({
   userFullName: {
     type: String,
@@ -30,12 +32,13 @@ const toggleShowPhoneNumber = () => {
 </script>
 
 <template>
-  <div class="information">
+  <section class="information" aria-labelledby="user-heading">
     <div class="information__header">
-      <h3 class="information__header-name">{{ userFullName }}</h3>
+      <h1 id="user-heading" class="information__header-name">{{ userFullName }}</h1>
       <AtomButton
         class="information__button information__button--download"
         text="Pobierz dane użytkownika"
+        :aria-label="`Pobierz dane użytkownika: ${userFullName}`"
         @click="emit('downloadUserInformation')"
       />
     </div>
@@ -43,22 +46,32 @@ const toggleShowPhoneNumber = () => {
     <div class="information-contact">
       <div class="information-contact__item">
         <span class="information-contact__label">Email:</span>
-        <a class="information-contact__link" :href="`mailto:${userEmail}`">
+        <a
+          class="information-contact__link"
+          :href="`mailto:${userEmail}`"
+          :aria-label="`Wyślij wiadomość email do ${userFullName} na adres ${userEmail}`"
+        >
           {{ userEmail }}
         </a>
       </div>
 
       <div class="information-contact__item">
-        <span class="information-contact__label">Numer telefon:</span>
-        <span class="information-contact__phone-number">{{ phoneNumber }}</span>
+        <span class="information-contact__label">Numer telefonu:</span>
+        <span
+          class="information-contact__phone-number"
+          :aria-label="showPhoneNumber ? `Numer telefonu: ${phoneNumber}` : 'Ukryty numer telefonu'"
+        >
+          {{ phoneNumber }}
+        </span>
         <AtomButton
           class="information__button information__button--contact"
-          text="Pokaż telefon"
+          :text="showPhoneNumber ? 'Ukryj telefon' : 'Pokaż telefon'"
+          :aria-label="showPhoneNumber ? 'Ukryj numer telefonu' : 'Pokaż pełny numer telefonu'"
           @click="toggleShowPhoneNumber"
         />
       </div>
     </div>
-  </div>
+  </section>
 </template>
 
 <style lang="scss" scoped>

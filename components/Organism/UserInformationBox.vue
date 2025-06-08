@@ -32,8 +32,13 @@ const downloadUserInformation = () => {
 <template>
   <div class="information-box">
     <section class="information-box__main-information">
-      <div class="information-box__image-wrapper">
-        <img class="information-box__img" :src="userImage" :alt="userFullName" />
+      <div class="information-box__image-wrapper" role="img" :aria-label="userFullName">
+        <img
+          class="information-box__img"
+          :src="userImage"
+          :alt="`zdjęcie użytkownika ${userFullName}`"
+          loading="lazy"
+        />
       </div>
 
       <MoleculeUserInformation
